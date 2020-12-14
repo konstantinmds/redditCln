@@ -1,0 +1,55 @@
+Todo je naziv za prostor koji se ima fuknciju samoobjasnjavanje programa.
+
+organizovacemo cjeline u fajlove :
+
+-----------------
+|FAJL:          |
+|index.ts:       |
+-----------------
+
+KLASA
+
+apolloServer 
+*******
+
+-/-/-/-/-/-/-/-/-/-/-
+- klasa koja treba da saagradi schemu pri tome kao argumente prihvatajuci resolvere- koji su SQL klase pretvorene omogucene za pristup graphQLu 
+
+resolveri se devinisu u svom folderu i sa dekoratorom resolver imaju funkcije dekorisane @mutacijom ili sa @Query ( i mora biti upercaseovano)
+apolo server kreira endpoint za graphql server koji poziva
+
+apolloServer pored scheme (koja trazi resolvere i validaciju) ima i context -trazeci objekt preko kojega resolver pristupa bazi podataka
+-/--/---/----/-/-
+
+--------------------
+|FAJL:             |
+|resolvers/post.ts | 
+--------------------
+
+KLASA:
+
+PostResolver
+*******
+ 
+PostResolver trazi @resovler dekoraciju, i u konkretnom slucaju trazi entitet -. koji se u entitetu mora pretvoriti u graphQL tip sa @ObjectType() i za svako polje
+koje zelimo izloziti obiljeziti sa @Field( moraju biti eksplicitno postavljena - npm i reflect-metadata )
+
+fukncija unutar resovler klase treba kontekst obiljezeno sa @Ctx() koja trazi tip objekta prosljedjenog u apollo context  (51-2 minut)
+
+
+tako 
+
+--------------------------------------------
+|nauciti EntityManager i metode malo bolje sa micro orm|
+|-----------------------------------------|
+--------------------------------------------------------------------
+dodati usera preko entitiesa (modela) onda ga dodati u mikro-orm.config  (Pogledati migraciju)
+
+await migrator.up iz maina restartuje server i pokrece migraciju
+
+---------------------------------------------
+bitno je uvijek pratiti dist folder i tu traziti nepodudaranje... kada nije jasno sta je -> rekompajliraj program sa watch
+PROBLEM OD POLA DANA NASTAO JER U FAJLU JE BILA GRESKA : Error: Cannot find module 'src/entities/User' 
+
+STVAR JE BILA JER JE ,KAO STO JE I NAPISANO AUTOIMPORTOM CLASA UNESENA KAO: src/entities/User, A U TSCONFIGU STOJI I U DISTU DA NEMA FOLDERA SRC !!!! PAZITI NA AUTOIMPORT ! 
+-------------------------------------------------------------
