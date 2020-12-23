@@ -4,6 +4,7 @@ import { Field, ObjectType } from "type-graphql";
 @ObjectType()
 @Entity()
 export class User {
+
   @Field()
   @PrimaryKey()
   id!: number;
@@ -23,4 +24,5 @@ export class User {
   //vdje nema fielda dakle, nema calla ali postoji u bazi
   @Property({type: "text"})
   password!: string;
+  
 }

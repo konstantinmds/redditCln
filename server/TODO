@@ -53,3 +53,44 @@ PROBLEM OD POLA DANA NASTAO JER U FAJLU JE BILA GRESKA : Error: Cannot find modu
 
 STVAR JE BILA JER JE ,KAO STO JE I NAPISANO AUTOIMPORTOM CLASA UNESENA KAO: src/entities/User, A U TSCONFIGU STOJI I U DISTU DA NEMA FOLDERA SRC !!!! PAZITI NA AUTOIMPORT ! 
 -------------------------------------------------------------
+
+apollo in index allowes context to have req and res for us to access sessions...gogle it 
+--------------------
+
+sessions work : 
+req.session.userId =user.id
+
+1
+{userId: 1} -> send it to redis 
+
+redis key -> val pairs 
+
+sdsd:gaopadgko2pj34po -> { userId: 1}
+2
+express-session set the cookie on the browser fa323po321pokvapja
+
+3 
+when user makes an req 
+fa323po321pokvapja -> sent to the server from browser
+
+4
+fa323po321pokvapja with cookie secret name, it decrypt it to sdsd:gaopadgko2pj34po
+
+5 make a req to redis get to a hash vraca se
+sdsd:gaopadgko2pj34po -> {userId: 1}
+
+---------------------------
+
+chakraUI  -> input field rijesenost pogledati dobro....
+setovana je mogucnost za username password input i proces
+------
+
+
+na 2:32:34  settamo graphql request i koristimo bibli  urql
+
+spinner koji se vrti nakon registera, vrti se jer : 
+nema returna (vracanja promisa)
+    onSubmit={(values) => {
+      console.log(values);
+      register(values);
+    }}
